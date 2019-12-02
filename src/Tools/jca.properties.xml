@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>IBM Thread and Monitor Dump Analyzer for Java Technology by Jinwoo Hwang</comment>
+<entry key="Directory.prop">/Users/jxliu</entry>
+<entry key="Confirm.prop">1</entry>
+<entry key="Console.prop"/>
+<entry key="LookAndFeel.prop">0</entry>
+</properties>
