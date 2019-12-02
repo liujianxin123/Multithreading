@@ -1,0 +1,151 @@
+1.创建txt文件命令：
+cd Desktop/ 
+touch  xxx.txt
+其中xxx就是你想要的txt的名字，回车后就会在桌面多个txt文件了的
+
+
+切换jdk版本
+
+1，创建.bash_profile配置文件（已经有该文件就跳过此步骤）
+touch ~/.bash_profile
+2，编辑.bash_profile文件
+open ~/.bash_profile
+3，设置jdk版本
+export JAVA_6_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+export JAVA_7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0.jdk/Contents/Home
+export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home
+
+export JAVA_HOME=KaTeX parse error: Double subscript at position 7: JAVA_6_̲HOME 4，alias命令动…JAVA_8_HOME’
+alias jdk7='export JAVA_HOME=KaTeX parse error: Double subscript at position 7: JAVA_7_̲HOME' alias jdk…JAVA_6_HOME’
+5，查看jdk安装目录
+/usr/libexec/java_home -V
+
+
+
+
+
+
+
+2.单节点启动es命令
+sh ./bin/elasticsearch
+
+#启动单节点
+bin/elasticsearch -E node.name=node0 -E cluster.name=geektime -E path.data=node0_data
+
+#安装插件
+bin/elasticsearch-plugin install analysis-icu
+
+#查看插件
+bin/elasticsearch-plugin list
+#查看安装的插件
+GET http://localhost:9200/_cat/plugins?v
+
+
+
+3.单机启动kibana
+// 启动 Cuban
+bin/kibana
+
+// 查看插件
+bin/kibana-plugin list
+
+
+
+
+4.docker容器启动命令
+#启动
+docker-compose up
+
+#停止容器
+docker-compose down
+
+#停止容器并且移除数据
+docker-compose down -v
+
+#一些docker 命令
+docker ps
+docker stop Name/ContainerId
+docker start Name/ContainerId
+
+#删除单个容器
+$docker rm Name/ID
+-f, –force=false; -l, –link=false Remove the specified link and not the underlying container; -v, –volumes=false Remove the volumes associated to the container
+
+#删除所有容器
+$docker rm `docker ps -a -q`  
+停止、启动、杀死、重启一个容器
+$docker stop Name/ID  
+$docker start Name/ID  
+$docker kill Name/ID  
+$docker restart name/ID
+
+
+
+
+5.Logstash导入数据集
+#启动Elasticsearch实例，然后启动 logstash，并制定配置文件导入数据
+sudo ./logstash -f logstash.conf
+
+
+
+
+6.linux常用操作命令
+tail -n 10 test.log 查询日志尾部最后10行的日志;
+
+tail -n +10 test.log 查询10行之后的所有日志;
+
+head -n 10 test.log 查询日志文件中的头10行日志;
+
+head -n -10 test.log 查询日志文件除了最后10行的其他所有日志;
+
+查找指定时间端的日志:sed -n ‘/2014-12-17 16:17:20/,/2014-12-17 16:17:36/p’ test.log
+
+使用more和less命令:cat -n test.log |grep “地形” |more 分页打印,通过点击空格键翻页
+
+
+7.linux中链接mysql
+命令格式
+mysql -h主机地址 -u用户名 -p用户密码
+
+登录本机 mysql
+mysql -u用户名 -p用户密码
+
+:w 保存；
+:w filename 另存为filename；
+:wq! 保存退出；
+:wq! filename 注：以filename为文件名保存后退出；
+:q! 不保存退出；
+:x 应该是保存并退出 ，功能和:wq!相同
+
+小i    在光标所在行位置停止不动开始写入内容
+大I    在光标所在行行首开始写入内容
+小a   在光标所在行当前字符后开始写入内容
+大A    在光标所在行行尾开始写入内容
+小o    在光标所在行下一行开始写入内容
+大O   在光标所在行上一行开始写入内容
+
+
+8.jstack命令
+
+b、生成进程下所有线程的栈日志
+
+ jstack 1721 > 1712.txt(个人喜欢的输出的一种方式)
+ 或者
+ jstack -l 4089 >1.txt 
+
+c、查看进程下哪些线程占用了高的cpu
+
+  top -p 1712 -H
+
+ 
+9.后台启动rabbitmq
+brew service start rabbitmq
+
+
+10.github上传文件
+git init
+git add .   
+git commit -m "first commit"
+git remote add origin git@github.com:saysky/SpringBlog-.git
+git push -u origin master
+
