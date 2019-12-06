@@ -1,7 +1,9 @@
 package jxliu.binfa;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -57,4 +59,21 @@ class MyThreadPool{
         });
 
     }
+
+    //int nums[] = {2,4,3,5,2,5}
+    public static void test(int[] nums) {
+        int target = 10;
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i<nums.length;i++){
+            int tmp = target - nums[i];
+            if(map.containsKey(tmp)){
+                System.out.println("两个数相加等于10的分别为"+tmp);
+                System.out.print(nums[i]);
+                break;//结束循环
+            }
+            map.put(nums[i],i);  //不存在，则加入
+        }
+    }
+
+
 }
